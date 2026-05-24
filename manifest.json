@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YTMark - YouTube Booker",
+  "version": "1.0.0",
+  "description": "Save timestamps and organize your bookmarks directly on YouTube.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "YTMark Bookmarks"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*"],
+      "matches": ["*://*.youtube.com/*"]
+    }
+  ]
+}
